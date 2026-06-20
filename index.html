@@ -24,28 +24,36 @@
       <p class="landing__eyebrow">Práctica de accesibilidad</p>
       <h1 class="landing__title">Cards Accesibles</h1>
       <p class="landing__desc">
-        El mismo componente de card de artículo con tres enfoques CSS
-        distintos. Todas comparten el mismo patrón accesible: un enlace dentro
-        del <code>&lt;h2&gt;</code> cuyo <code>::before</code> estira el área
+        El mismo componente de card de artículo con tres enfoques CSS distintos.
+        Todas comparten el mismo patrón accesible: un enlace dentro del
+        <code>&lt;h2&gt;</code> cuyo <code>::before</code> estira el área
         clickeable a toda la tarjeta — sin anidar <code>&lt;a&gt;</code> ni
         JavaScript.
       </p>
-      <nav aria-label="Ejemplos por enfoque" class="landing__grid">
-        <a href="/bem.html" class="landing__link">
-          <span class="landing__link-label">Ejemplo 1</span>
-          <span class="landing__link-name">BEM</span>
-          <span class="landing__link-desc">Block Element Modifier</span>
-        </a>
-        <a href="/bemit.html" class="landing__link">
-          <span class="landing__link-label">Ejemplo 2</span>
-          <span class="landing__link-name">BEMIT</span>
-          <span class="landing__link-desc">BEM + Inverted Triangle</span>
-        </a>
-        <a href="/tailwind.html" class="landing__link">
-          <span class="landing__link-label">Ejemplo 3</span>
-          <span class="landing__link-name">Tailwind CSS</span>
-          <span class="landing__link-desc">Utility-first CSS</span>
-        </a>
+      <nav aria-label="Ejemplos por enfoque">
+        <ul class="landing__grid">
+          <li>
+            <div class="landing__card">
+              <span class="landing__card-label">Ejemplo 1</span>
+              <a href="/bem.html" class="landing__link">BEM</a>
+              <span class="landing__card-desc">Block Element Modifier</span>
+            </div>
+          </li>
+          <li>
+            <div class="landing__card">
+              <span class="landing__card-label">Ejemplo 2</span>
+              <a href="/bemit.html" class="landing__link">BEMIT</a>
+              <span class="landing__card-desc">BEM + Inverted Triangle</span>
+            </div>
+          </li>
+          <li>
+            <div class="landing__card">
+              <span class="landing__card-label">Ejemplo 3</span>
+              <a href="/tailwind.html" class="landing__link">Tailwind CSS</a>
+              <span class="landing__card-desc">Utility-first CSS</span>
+            </div>
+          </li>
+        </ul>
       </nav>
       <p class="landing__note">
         Esta práctica acompaña el artículo
@@ -62,7 +70,7 @@
     </main>
     <footer class="site-footer">
       <p class="site-footer__copy">© 2026 Osvaldo Ocampo</p>
-      <nav class="site-footer__links" aria-label="Perfiles del autor">
+      <nav class="site-footer__links" aria-label="Enlaces del autor">
         <a
           href="https://medium.com/@osvaocampo"
           target="_blank"
@@ -73,10 +81,12 @@
           href="https://www.linkedin.com/in/osvaldo-ocampo/"
           target="_blank"
           rel="noopener noreferrer"
-          >LinkedIn<span class="sr-only"> (se abre en una nueva pestaña)</span></a
+          >LinkedIn<span class="sr-only">
+            (se abre en una nueva pestaña)</span
+          ></a
         >
         <a
-          href="https://github.com/Osvalam86"
+          href="https://github.com/Osvalam86/cards-accesibles"
           target="_blank"
           rel="noopener noreferrer"
           >GitHub<span class="sr-only"> (se abre en una nueva pestaña)</span></a
