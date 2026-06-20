@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/*
+  Hooks de clase para :has() — no reemplazables con utilities de Tailwind:
+    .t-card  → article (contexto de posición para el stretched link)
+    .t-link  → <a> dentro del <h2> (el stretched link)
+    .t-title → <h2> que recibe el cambio de color en hover
+*/
+
+@layer components {
+  .t-card:has(.t-link:hover) {
+    box-shadow: 0 0.5rem 1.875rem rgb(0 0 0 / 0.35);
+  }
+
+  .t-card:has(.t-link:hover) .t-title {
+    color: var(--color-cyan-300);
+  }
+
+  .t-card:has(.t-link:focus-visible) {
+    outline: 0.125rem solid var(--color-cyan-400);
+    outline-offset: 0.1875rem;
+    animation: neon-pulse 1.6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .t-card:has(.t-link:focus-visible) {
+      animation: none;
+      box-shadow:
+        0 0 0.75rem var(--color-cyan-400),
+        0 0 1.75rem color-mix(in srgb, var(--color-cyan-400) 50%, transparent);
+    }
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0.375rem var(--color-cyan-400),
+      0 0 0.875rem color-mix(in srgb, var(--color-cyan-400) 45%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0.875rem var(--color-cyan-400),
+      0 0 1.875rem color-mix(in srgb, var(--color-cyan-400) 60%, transparent),
+      0 0 3.125rem color-mix(in srgb, var(--color-cyan-400) 25%, transparent);
+  }
+}

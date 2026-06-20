@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Osvaldo Ocampo" />
+    <meta name="description" content="Card de artículo accesible implementada con BEM (Block Element Modifier). Ejemplo práctico de accesibilidad web." />
+    <meta property="og:title" content="Cards Accesibles — BEM" />
+    <meta property="og:description" content="Card de artículo accesible con BEM: stretched link, focus visible y semántica correcta." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#ece8df" />
+    <title>Cards Accesibles — BEM</title>
+    <link rel="stylesheet" href="/src/shared.css" />
+    <link rel="stylesheet" href="/src/bem/card.scss" />
+  </head>
+  <body>
+    <main>
+      <div class="demo">
+        <header class="demo__header">
+          <p class="demo__eyebrow">Metodología CSS · Diseño Brutalista</p>
+          <h1 class="demo__title">BEM</h1>
+          <p class="demo__desc">
+            <strong>Block Element Modifier.</strong> El enlace vive dentro del
+            <code>&lt;h2&gt;</code> y un <code>::before</code> con
+            <code>inset: 0</code> estira el área clickeable a toda la card. El
+            <code>.tag</code> es un bloque BEM independiente con
+            <code>z-index: 2</code> para permanecer interactivo.
+          </p>
+          <nav aria-label="Otros ejemplos">
+            <ul class="demo__nav">
+              <li><a href="/">← Inicio</a></li>
+              <li><a href="/bemit.html">Ver BEMIT</a></li>
+              <li><a href="/tailwind.html">Ver Tailwind</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <ul class="demo__grid">
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <img
+                  class="card__image"
+                  src="/placeholder.svg"
+                  alt=""
+                  width="800"
+                  height="450"
+                />
+              </div>
+              <div class="card__body">
+                <a class="tag" href="#">Noticia</a>
+                <h2 class="card__title">
+                  <a class="card__link" href="#">
+                    Mitma acuerda con los controladores aéreos un convenio
+                    colectivo histórico
+                  </a>
+                </h2>
+                <time class="card__date" datetime="2023-06-05"
+                  >05 jun 2023</time
+                >
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <img
+                  class="card__image"
+                  src="/placeholder.svg"
+                  alt=""
+                  width="800"
+                  height="450"
+                />
+              </div>
+              <div class="card__body">
+                <a class="tag" href="#">Política</a>
+                <h2 class="card__title">
+                  <a class="card__link" href="#">
+                    El Gobierno aprueba el plan de movilidad sostenible para las
+                    ciudades
+                  </a>
+                </h2>
+                <time class="card__date" datetime="2023-05-12"
+                  >12 may 2023</time
+                >
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <div class="card__media">
+                <img
+                  class="card__image"
+                  src="/placeholder.svg"
+                  alt=""
+                  width="800"
+                  height="450"
+                />
+              </div>
+              <div class="card__body">
+                <a class="tag" href="#">Economía</a>
+                <h2 class="card__title">
+                  <a class="card__link" href="#">
+                    Nueva ley de vivienda: claves para entender los cambios en
+                    el alquiler
+                  </a>
+                </h2>
+                <time class="card__date" datetime="2023-04-28"
+                  >28 abr 2023</time
+                >
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <p class="page-footer__copy">© 2026 Osvaldo Ocampo</p>
+      <nav class="page-footer__links" aria-label="Perfiles del autor">
+        <a
+          class="page-footer__link"
+          href="https://medium.com/@osvaocampo"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Medium<span class="sr-only"> (se abre en una nueva pestaña)</span></a
+        >
+        <a
+          class="page-footer__link"
+          href="https://www.linkedin.com/in/osvaldo-ocampo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn<span class="sr-only"> (se abre en una nueva pestaña)</span></a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Osvaldo Ocampo" />
+    <meta name="description" content="Card de artículo accesible implementada con BEMIT (BEM + Inverted Triangle + Namespaces). Ejemplo práctico de accesibilidad web." />
+    <meta property="og:title" content="Cards Accesibles — BEMIT" />
+    <meta property="og:description" content="Card de artículo accesible con BEMIT: namespaces de capa o-, c-, u- e is- aplicados a un componente editorial." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f5efe4" />
+    <title>Cards Accesibles — BEMIT</title>
+    <link rel="stylesheet" href="/src/shared.css" />
+    <link rel="stylesheet" href="/src/bemit/card.scss" />
+  </head>
+  <body>
+    <!--
+      BEMIT: BEM + Inverted Triangle + namespaces de capa
+        o-  → Object:    layout reutilizable, sin apariencia
+        c-  → Component: UI con estilo propio
+        u-  → Utility:   helper de una sola responsabilidad
+        is- → State:     estado temporal
+        js- → JS hook:   nunca se estiliza
+    -->
+    <main>
+      <div class="o-wrapper">
+        <header class="c-page-header">
+          <p class="c-page-header__eyebrow">Metodología CSS · Diseño Editorial</p>
+          <h1 class="c-page-header__title">BEMIT</h1>
+          <p class="c-page-header__desc">
+            <strong>BEM + Inverted Triangle + Namespaces.</strong> Igual que BEM
+            pero con prefijos de capa: <code>o-</code> para objetos de layout,
+            <code>c-</code> para componentes. El <code>c-tag</code> es un
+            componente independiente, no un elemento de <code>c-card</code>.
+          </p>
+          <nav aria-label="Otros ejemplos">
+            <ul class="c-page-header__nav">
+              <li><a href="/">← Inicio</a></li>
+              <li><a href="/bem.html">Ver BEM</a></li>
+              <li><a href="/tailwind.html">Ver Tailwind</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <ul class="o-grid">
+          <li>
+            <article class="c-card">
+              <div class="c-card__media">
+                <img
+                  class="c-card__image"
+                  src="/placeholder.svg"
+                  alt=""
+                  width="800"
+                  height="450"
+                />
+              </div>
+              <div class="c-card__body">
+                <a class="c-tag" href="#">Noticia</a>
+                <h2 class="c-card__title">
+                  <a class="c-card__link" href="#">
+                    Mitma acuerda con los controladores aéreos un convenio
+                    colectivo histórico
+                  </a>
+                </h2>
+                <time class="c-card__date" datetime="2023-06-05">05 jun 2023</time>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="c-card">
+              <div class="c-card__media">
+                <img
+                  class="c-card__image"
+                  src="/placeholder.svg"
+                  alt=""
+                  width="800"
+                  height="450"
+                />
+              </div>
+              <div class="c-card__body">
+                <a class="c-tag" href="#">Política</a>
+                <h2 class="c-card__title">
+                  <a class="c-card__link" href="#">
+                    El Gobierno aprueba el plan de movilidad sostenible para las
+                    ciudades
+                  </a>
+                </h2>
+                <time class="c-card__date" datetime="2023-05-12">12 may 2023</time>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="c-card">
+              <div class="c-card__media">
+                <img
+                  class="c-card__image"
+                  src="/placeholder.svg"
+                  alt=""
+                  width="800"
+                  height="450"
+                />
+              </div>
+              <div class="c-card__body">
+                <a class="c-tag" href="#">Economía</a>
+                <h2 class="c-card__title">
+                  <a class="c-card__link" href="#">
+                    Nueva ley de vivienda: claves para entender los cambios en
+                    el alquiler
+                  </a>
+                </h2>
+                <time class="c-card__date" datetime="2023-04-28">28 abr 2023</time>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer class="c-page-footer">
+      <div class="o-wrapper c-page-footer__inner">
+        <p class="c-page-footer__copy">© 2026 Osvaldo Ocampo</p>
+        <nav class="c-page-footer__links" aria-label="Perfiles del autor">
+          <a
+            class="c-page-footer__link"
+            href="https://medium.com/@osvaocampo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Medium<span class="u-visually-hidden"> (se abre en una nueva pestaña)</span></a
+          >
+          <a
+            class="c-page-footer__link"
+            href="https://www.linkedin.com/in/osvaldo-ocampo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn<span class="u-visually-hidden"> (se abre en una nueva pestaña)</span></a
+          >
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

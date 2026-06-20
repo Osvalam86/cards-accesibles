@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Imagen de placeholder 16:9">
+  <rect width="800" height="450" fill="#ede8e0"/>
+  <pattern id="hatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="16" stroke="#d4cec4" stroke-width="1.5"/>
+  </pattern>
+  <rect width="800" height="450" fill="url(#hatch)"/>
+  <rect x="290" y="195" width="220" height="60" rx="4" fill="none" stroke="#b0a89e" stroke-width="1.5"/>
+  <text x="400" y="228" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, sans-serif" font-size="22" fill="#8a8278">Imagen 16:9</text>
+</svg>

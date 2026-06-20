@@ -1,0 +1,305 @@
+:root {
+  // Primitivos
+  --clay-900: #2c2416;
+  --clay-500: #7a6e5f;
+  --cream-100: #f5efe4;
+  --cream-50: #fffcf5;
+  --cream-200: #ede4d4;
+  --cream-300: #ddd4c2;
+  --blue-600: #1a56db;
+  --orange-600: #c25e00;
+
+  // Semánticos
+  --c-text: var(--clay-900);
+  --c-muted: var(--clay-500);
+  --c-bg-page: var(--cream-100);
+  --c-bg-card: var(--cream-50);
+  --c-bg-img: var(--cream-200);
+  --c-border: var(--cream-300);
+  --c-focus: var(--blue-600);
+  --c-accent: var(--orange-600);
+
+  --ff-serif: Georgia, 'Times New Roman', serif;
+  --ff-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--c-bg-page);
+  font-family: var(--ff-sans);
+  color: var(--c-text);
+}
+
+.o-wrapper {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 3rem 1.5rem;
+}
+
+.o-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.c-page-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.0625rem solid var(--c-border);
+
+  &__eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin: 0 0 0.5rem;
+  }
+
+  &__title {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0 0 0.625rem;
+    font-family: var(--ff-serif);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  &__desc {
+    color: var(--c-muted);
+    max-width: 64ch;
+    margin: 0 0 1.125rem;
+    line-height: 1.7;
+    font-size: 0.9375rem;
+
+    strong { color: var(--c-text); }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: var(--c-border);
+      padding: 0.15em 0.4em;
+      border-radius: 0.1875rem;
+      font-size: 0.875em;
+      color: var(--c-text);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+
+    a {
+      color: var(--c-text);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--c-accent);
+      text-underline-offset: 0.1875rem;
+      text-decoration-thickness: 0.0625rem;
+
+      &:hover {
+        color: var(--c-accent);
+        text-decoration-color: currentColor;
+      }
+
+      &:focus-visible {
+        outline: 0.125rem solid var(--c-accent);
+        outline-offset: 0.1875rem;
+        border-radius: 0.125rem;
+      }
+    }
+  }
+}
+
+// .c-tag es un componente independiente — no elemento de .c-card.
+// z-index: 2 lo mantiene interactivo sobre el ::before del stretched link (z-index: 1).
+.c-tag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.35em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: var(--ff-sans);
+  color: var(--c-accent);
+  text-decoration: none;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 0.3125rem;
+    height: 0.3125rem;
+    background: currentColor;
+    border-radius: 0.0625rem;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.1875rem;
+  }
+
+  &:focus-visible {
+    outline: 0.125rem solid var(--c-accent);
+    outline-offset: 0.1875rem;
+    border-radius: 0.125rem;
+  }
+}
+
+.c-card {
+  position: relative;
+  border: 0.0625rem solid var(--c-border);
+  border-top: 0.1875rem solid var(--c-accent);
+  border-radius: 0.125rem;
+  background: var(--c-bg-card);
+  height: 100%;
+  transition: box-shadow 180ms ease;
+
+  &:has(.c-card__link:hover) {
+    box-shadow: 0 0.25rem 1.25rem rgb(44 36 22 / 0.1);
+  }
+
+  // outline en el color de marca + halo suave para no romper la calidez editorial
+  &:has(.c-card__link:focus-visible) {
+    outline: 0.125rem solid var(--c-accent);
+    outline-offset: 0.125rem;
+    box-shadow: 0 0 0 0.3125rem rgba(194, 94, 0, 0.12);
+  }
+
+  // overflow: hidden en __media (no en .c-card) para que el ring de foco no quede recortado
+  &__media {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    background: var(--c-bg-img);
+    overflow: hidden;
+    border-radius: 0.0625rem 0.0625rem 0 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 1.125rem 1.25rem 1.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-family: var(--ff-serif);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--c-text);
+    margin: 0;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    // ::before estira el área clickeable a toda la .c-card (position: relative)
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    &:focus-visible { outline: none; }
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.1875rem;
+    }
+  }
+
+  &__date {
+    font-size: 0.8rem;
+    color: var(--c-muted);
+    padding-top: 0.75rem;
+    border-top: 0.0625rem solid var(--c-border);
+    margin-top: auto;
+  }
+}
+
+// c-page-footer — componente de pie de página con la identidad editorial.
+.c-page-footer {
+  border-top: 0.0625rem solid var(--c-border);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    padding-block: 1.75rem;
+  }
+
+  &__copy {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--c-muted);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.8125rem;
+  }
+
+  &__link {
+    color: var(--c-text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--c-accent);
+    text-underline-offset: 0.1875rem;
+    text-decoration-thickness: 0.0625rem;
+
+    &:hover {
+      color: var(--c-accent);
+      text-decoration-color: currentColor;
+    }
+
+    &:focus-visible {
+      outline: 0.125rem solid var(--c-accent);
+      outline-offset: 0.1875rem;
+      border-radius: 0.125rem;
+    }
+  }
+}
+
+.u-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
