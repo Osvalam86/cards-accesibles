@@ -14,7 +14,9 @@
 
 ## 🚀 Demo
 
-> 🚧 Demo en vivo: se añadirá aquí tras el despliegue en Netlify.
+[![Netlify Status](https://img.shields.io/badge/demo-en_vivo-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://cards-accesibles.netlify.app)
+
+🔗 **[cards-accesibles.netlify.app](https://cards-accesibles.netlify.app)**
 
 📖 Práctica que acompaña el artículo en Medium: [**«Llevo años haciendo cards clickeables mal»**](https://medium.com/@osvaocampo/llevo-a%C3%B1os-haciendo-cards-clickeables-mal-y-t%C3%BA-probablemente-tambi%C3%A9n-7fa1b96478ba)
 
