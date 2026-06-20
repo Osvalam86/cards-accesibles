@@ -72,4 +72,4 @@ Estructura accesible compartida por los 3 ejemplos (patrón **stretched link**, 
 
 ## Vite multi-page
 
-Vite detecta automáticamente los `.html` en la raíz como entradas. No hay configuración de `build.rollupOptions.input` — funciona por convención. El plugin `@tailwindcss/vite` procesa solo el `styles.css` de Tailwind; los SCSS de BEM y BEMIT los maneja el paquete `sass` sin configuración adicional.
+En **dev** (`pnpm dev`) Vite sirve cualquier `.html` de la raíz por su ruta. Pero en **build** (`pnpm build`) solo `index.html` es entrada por defecto: las páginas extra deben declararse en `build.rollupOptions.input` (en `vite.config.js` están las 4: `index`, `bem`, `bemit`, `tailwind`). Sin eso, las páginas funcionan en local pero dan 404 en producción. El plugin `@tailwindcss/vite` procesa solo el `styles.css` de Tailwind; los SCSS de BEM y BEMIT los maneja el paquete `sass` sin configuración adicional.
